@@ -1,10 +1,14 @@
 const express = require("express")
 const cors = require("cors")
-const mongoose = require("mongoose")
-const app = express()
+const mongoose = require("mongoose");
+const userRouter = require("./Routes/userRoute");
+
+const app = express();
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
+app.use("/api/users", userRouter);
 
 // CRUD;
 app.get("/", (req, res) => {

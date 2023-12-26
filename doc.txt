@@ -2,3 +2,71 @@ Reat chat app
 mongodb 
 username : wasiujahan764
 password : jCf26QMTfMezYsMW
+
+{
+    "name":"asdf",
+    "email":"asd@asd.com",
+    "password":"A123456789a@"
+}6587e4b8dc5b62f95407fcc5
+
+mongodb://localhost:27017
+
+import { useContext } from "react";
+import { Alert, Button, Form, Row, Col, Stack } from "react-bootstrap";
+import { AuthContext } from "../context/AuthContext";
+
+const Register = () => {
+const {user} = useContext(AuthContext)
+    return (
+    <>
+        <Form>
+            <Row style={{
+                height:"100",
+                justifyContent:"center",
+                paddingTop : "20%",
+            }}>
+                <Col xs={6}>
+                    <Stack gap={3}>
+                        <h2>Register</h2>
+                        {/* <h2>{user.name}</h2> */}
+
+                            <Form.Control type="text" placeholder="Name" />
+                            <Form.Control type="text" placeholder="Email" />
+                            <Form.Control type="text" placeholder="password" />
+                            <Button variant="primary" type="submit">
+                                Register
+                            </Button>
+
+                            <Alert variant="danger"><p>An Error occured</p></Alert>
+                    </Stack>
+                </Col>
+            </Row>
+        </Form>
+    </> 
+    );
+};
+export default Register;
+
+
+
+
+\\\\\\\\\\\\\\\
+main
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { BrowserRouter } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext.jsx';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+)
